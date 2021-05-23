@@ -1,0 +1,139 @@
+@import './font-awesome/font-awesome.scss';
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  src: url('~assets/fonts/lato-v16-latin-regular.eot'); // IE9 Compat Modes
+  src: url('~assets/fonts/lato-v16-latin-regular.eot?#iefix') format('embedded-opentype'), // IE6-IE8
+  url('~assets/fonts/lato-v16-latin-regular.woff2') format('woff2'), // Super Modern Browsers
+  url('~assets/fonts/lato-v16-latin-regular.woff') format('woff'), // Pretty Modern Browsers
+  url('~assets/fonts/lato-v16-latin-regular.ttf') format('truetype'), // Safari, Android, iOS
+  url('~assets/fonts/lato-v16-latin-regular.svg#Lato') format('svg'); // Legacy iOS
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.skip-link {
+  position: fixed;
+  top: -50px;
+  left: 0;
+  background-color: #caf7e3;
+  color: #293a46;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 0.8rem 1rem;
+  border-radius: 5px;
+  z-index: 1030;
+  &:focus {
+    top: 16px;
+    left: 16px;
+  }
+}
+
+body {
+  background-color: #f6dfeb;
+  font-family: "Lato";
+  color: #3c4f5c;
+  padding: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: #3c4f5c;
+}
+
+main {
+  .main-list {
+    margin-top: 15rem;
+    .main-header {
+      margin-top: 20px;
+      margin-bottom: 15px;
+      .main-title {
+        h1 {
+          margin-top: 0;
+          margin-bottom: 5px;
+          color: #293a46;
+          text-transform: capitalize;
+          font-size: 1em;
+        }
+        p {
+          margin-top: 0;
+          margin-bottom: 0;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+footer .container {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 3px;
+  padding: 10px 0;
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  main {
+    .main-list {
+      margin-top: 15rem;
+    }
+  }
+  .container {
+    max-width: 576px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  main {
+    .main-list {
+      margin-top: 18rem;
+    }
+  }
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  main {
+    .main-list {
+      margin-top: 18rem;
+    }
+  }
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  main {
+    .main-list {
+      margin-top: 18rem;
+    }
+  }
+  .container {
+    max-width: 1080px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1800px;
+  }
+}
+
+@media (min-width: 992px) {
+  footer .container {
+    margin-top: 1.2rem;
+  }
+}

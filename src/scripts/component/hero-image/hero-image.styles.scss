@@ -1,0 +1,46 @@
+.main-hero-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("images/hero-image_2.jpg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  margin-top: 4rem;
+  z-index: 1000;
+  .main-hero-text {
+    text-align: center;
+    color: white;
+    padding: 25px;
+    h1 {
+      margin-bottom: 5px;
+    }
+    p {
+      margin-top: 0;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .main-hero-image {
+    .main-hero-text {
+      padding: 50px;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .main-hero-image {
+    .main-hero-text {
+      text-align: left;
+    }
+  }
+}
+
+@media (min-width: 1920px) {
+  .main-hero-image {
+    .main-hero-text {
+      padding: 100px;
+    }
+  }
+}

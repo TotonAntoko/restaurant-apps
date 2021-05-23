@@ -1,0 +1,178 @@
+$breakpoint: 992px;
+$app-bar-color: #fff; //#e4bad4; //#fff;
+$nav-menu-color: #caf7e3; //#f2f2f2;
+// Mobile Style
+header {
+  &.fixed {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1020;
+  }
+  .app-bar-overlay {
+    left: 0;
+    width: 100%;
+    background: linear-gradient(180deg, #f6dfeb, transparent) #fff0;
+    position: absolute;
+    z-index: 1030;
+  }
+  .app-bar-mobile {
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    text-align: center;
+    background: $app-bar-color;
+    box-shadow: 0 5px 10px 0 rgba(51, 54, 69, 0.1);
+    align-items: center;
+    padding: 6px;
+    .app-bar-menu {
+      background-color: transparent;
+      border: none;
+      min-height: 44px;
+      min-width: 44px;
+      &:hover {
+        cursor: pointer;
+      }
+      img {
+        margin-left: auto;
+        margin-right: auto;
+        width: 24px;
+      }
+    }
+    .app-bar-logo img {
+      width: 50px;
+    }
+  }
+  .app-bar-desktop {
+    display: none;
+  }
+}
+
+nav {
+  &#navigationDrawer {
+    width: 250px;
+    position: fixed;
+    background: $app-bar-color;
+    box-shadow: 0 5px 10px 0 rgba(51, 54, 69, 0.1);
+    border-radius: 5px;
+    padding: 15px;
+    transform: translate(-300px, 0);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1010;
+    &.open {
+      transform: translate(10px, 0);
+    }
+    ul {
+      &.nav-menu {
+        list-style-type: none;
+        padding: 0;
+        li {
+          margin-top: 5px;
+          &.active,
+          &:hover {
+            background-color: $nav-menu-color;
+            border-radius: 5px;
+          }
+          &.active {
+            a {
+              span {
+                font-weight: bold;
+              }
+            }
+          }
+          a {
+            display: inline-flex;
+            width: 100%;
+            font-size: 14px;
+            min-height: 44px;
+            min-width: 44px;
+            .nav-menu-icon {
+              display: inline-flex;
+              text-align: center;
+              padding: 0 10px;
+              img {
+                width: 24px;
+                padding: 3px;
+              }
+            }
+            span {
+              margin-top: auto;
+              margin-bottom: auto;
+              margin-left: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Desktop Style
+@media (min-width: $breakpoint) {
+  header {
+    .app-bar-mobile {
+      display: none;
+    }
+    .app-bar-desktop {
+      display: block;
+      background: $app-bar-color;
+      box-shadow: 0 5px 10px 0 rgba(51, 54, 69, 0.1);
+      .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .app-bar-menu {
+        text-align: left;
+        padding-left: 1rem;
+      }
+      .app-bar-logo {
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+      nav {
+        margin-left: auto;
+        ul {
+          &.nav-menu {
+            list-style-type: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(3, 150px);
+            li {
+              margin-left: 5px;
+              &.active {
+                background-color: $nav-menu-color;
+                border-radius: 5px;
+              }
+              a {
+                &:hover,
+                &:focus {
+                  background-color: $nav-menu-color;
+                  border-radius: 5px;
+                  span {
+                    font-weight: bold;
+                  }
+                }
+                display: grid;
+                grid-template-columns: 1.5fr 2fr;
+                width: 100%;
+                font-size: 14px;
+                min-height: 44px;
+                min-width: 44px;
+                .nav-menu-icon {
+                  margin: auto;
+                  img {
+                    width: 24px;
+                  }
+                }
+                span {
+                  margin-top: auto;
+                  margin-bottom: auto;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
