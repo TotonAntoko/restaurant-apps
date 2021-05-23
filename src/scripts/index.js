@@ -1,24 +1,20 @@
-import 'lazysizes';
-import 'regenerator-runtime'; /* for async await transpile */
-import '../styles/main.scss';
-import './component/app-bar';
-import './component/hero-image';
-import './component/card-restaurant';
+import 'lazysizes'
+import 'regenerator-runtime' /* for async await transpile */
+import '../styles/main.scss'
+import './component/app-bar'
+import './component/hero-image'
+import './component/card-restaurant'
+import App from './views/app'
 
-const buttonSelector = document.querySelector('#drawerButton');
-const drawerSelector = document.querySelector('#navigationDrawer');
-const contentSelector = document.querySelector('#mainContent');
+const app = new App({
+  button: document.querySelector('#drawerButton'),
+  drawer: document.querySelector('#navigationDrawer'),
+  content: document.querySelector('#mainContent')
+})
+
+const contentSelector = document.querySelector('#mainContent')
 
 window.addEventListener('DOMContentLoaded', () => {
-  buttonSelector.addEventListener('click', (event) => {
-    event.stopPropagation();
-    drawerSelector.classList.toggle('open');
-  });
-  contentSelector.addEventListener('click', (event) => {
-    event.stopPropagation();
-    drawerSelector.classList.remove('open');
-  });
-
   contentSelector.innerHTML = `
     <div class="container">
       <div class="main-list">
@@ -33,8 +29,8 @@ window.addEventListener('DOMContentLoaded', () => {
         </div>
       </div>
     </div>
-  `;
-  const cardRestaurant = document.querySelector('card-restaurant');
-  let dataRestaurant = require('../DATA.json');
-  cardRestaurant.content = dataRestaurant.restaurants;
-});
+  `
+  const cardRestaurant = document.querySelector('card-restaurant')
+  const dataRestaurant = require('../DATA.json')
+  cardRestaurant.content = dataRestaurant.restaurants
+})
