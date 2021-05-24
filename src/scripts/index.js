@@ -2,8 +2,6 @@ import 'lazysizes'
 import 'regenerator-runtime' /* for async await transpile */
 import '../styles/main.scss'
 import './component/app-bar'
-import './component/hero-image'
-import './component/card-restaurant'
 import App from './views/app'
 
 const app = new App({

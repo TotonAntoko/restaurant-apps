@@ -1,4 +1,6 @@
-import RestaurantDBSource from '../../data/restaurant-source'
+import RestaurantSource from '../../data/restaurant-source'
+import '../../component/hero-image'
+import '../../component/card-restaurant'
 
 const Home = {
   async render () {
@@ -20,7 +22,7 @@ const Home = {
   },
 
   async afterRender () {
-    const restaurant = await RestaurantDBSource.listRestaurant()
+    const restaurant = await RestaurantSource.listRestaurant()
     const cardRestaurant = document.querySelector('card-restaurant')
     cardRestaurant.content = restaurant
   }
