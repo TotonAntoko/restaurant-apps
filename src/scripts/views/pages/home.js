@@ -1,3 +1,5 @@
+import RestaurantDBSource from '../../data/restaurant-source'
+
 const Home = {
   async render () {
     return `
@@ -18,9 +20,9 @@ const Home = {
   },
 
   async afterRender () {
+    const restaurant = await RestaurantDBSource.listRestaurant()
     const cardRestaurant = document.querySelector('card-restaurant')
-    const dataRestaurant = require('../../../DATA.json')
-    cardRestaurant.content = dataRestaurant.restaurants
+    cardRestaurant.content = restaurant
   }
 }
 
