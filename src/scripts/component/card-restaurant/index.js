@@ -1,25 +1,23 @@
-import styles from './card-restaurant.styles.scss';
+import CONFIG from '../../globals/config'
+import styles from './card-restaurant.styles.scss'
 
 class CardRestaurant extends HTMLElement {
-  set content(items) {
-    this._items = items;
-    this.render();
+  set content (items) {
+    this._items = items
+    this.render()
   }
 
-  async render() {
+  async render () {
     this.innerHTML = `
       <style>
         ${styles}
       </style>
-    `;
+    `
 
     const content = this._items.map((item) => `
         <div class="main-card">
           <div class="col-image">
-            <img class="lazyload" src="images/loading.gif" data-src="${item.pictureId}"
-              data-srcset="${item.pictureId} 480w, ${item.pictureId} 800w"
-              sizes="(max-width: 600px) 480px, 800px"
-              alt="${item.name}"/>
+            <img class="lazyload" src="images/loading.gif" data-src="${CONFIG.IMAGE_BASE_URL.SMALL}${item.pictureId}" data-srcset="${CONFIG.IMAGE_BASE_URL.MEDIUM}${item.pictureId} 480w, ${CONFIG.IMAGE_BASE_URL.LARGE}${item.pictureId} 800w" sizes="(max-width: 600px) 480px, 800px" alt="${item.name}"/>
           </div>
           <div class="col-info">
             <h1 tabindex="0" class="title">${item.name}</h1>
@@ -37,10 +35,10 @@ class CardRestaurant extends HTMLElement {
               ${item.description}
             </p>
           </div>
-        </div>`);
+        </div>`)
 
-    $('card-restaurant').append(content);
+    $('card-restaurant').append(content)
   }
 }
 
-customElements.define('card-restaurant', CardRestaurant);
+customElements.define('card-restaurant', CardRestaurant)
