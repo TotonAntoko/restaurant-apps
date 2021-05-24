@@ -1,7 +1,9 @@
+import '../../component/restaurant-detail-header'
+
 const Detail = {
   async render () {
     return `
-      <h1>This Page Detail</h1>
+      <restaurant-detail-header></restaurant-detail-header>
     `
   }
 }
