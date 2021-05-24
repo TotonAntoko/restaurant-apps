@@ -12,9 +12,6 @@ const app = new App({
   content: document.querySelector('#mainContent')
 })
 
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
   app.renderPage()
-  const cardRestaurant = document.querySelector('card-restaurant')
-  const dataRestaurant = require('../DATA.json')
-  cardRestaurant.content = dataRestaurant.restaurants
 })

@@ -15,6 +15,12 @@ const Home = {
         </div>
       </div>
     `
+  },
+
+  async afterRender () {
+    const cardRestaurant = document.querySelector('card-restaurant')
+    const dataRestaurant = require('../../../DATA.json')
+    cardRestaurant.content = dataRestaurant.restaurants
   }
 }
 
