@@ -15,6 +15,7 @@ class CardRestaurant extends HTMLElement {
     `
 
     const content = this._items.map((item) => `
+      <a href="#/detail/${item.id}">
         <div class="main-card">
           <div class="col-image">
             <img class="lazyload" src="images/loading.gif" data-src="${CONFIG.IMAGE_BASE_URL.SMALL}${item.pictureId}" data-srcset="${CONFIG.IMAGE_BASE_URL.MEDIUM}${item.pictureId} 480w, ${CONFIG.IMAGE_BASE_URL.LARGE}${item.pictureId} 800w" sizes="(max-width: 600px) 480px, 800px" alt="${item.name}"/>
@@ -35,7 +36,8 @@ class CardRestaurant extends HTMLElement {
               ${item.description}
             </p>
           </div>
-        </div>`)
+        </div>
+      </a>`)
 
     $('card-restaurant').append(content)
   }
