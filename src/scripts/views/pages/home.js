@@ -5,6 +5,7 @@ import '../../component/card-restaurant'
 const Home = {
   async render () {
     return `
+      <hero-image></hero-image>
       <div class="container">
         <div class="main-list">
           <div class="main-header">
