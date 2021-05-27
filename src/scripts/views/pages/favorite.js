@@ -1,3 +1,5 @@
+import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb'
+
 // components
 import '../../component/card-restaurant'
 
@@ -19,7 +21,23 @@ const Favorite = {
     `
   },
 
-  async afterRender () {}
+  async afterRender () {
+    const cardRestaurant = document.querySelector('card-restaurant')
+
+    try {
+      const results = await FavoriteRestaurantIdb.getAllRestaurants()
+      console.log(results)
+      if (results.length === 0) {
+        $('.main-content').html(`<div class="empty-favorite">
+            <img src="/assets/images/empty-favorite.png">
+            <p>favorite restaurant data not found</p>
+        </div>`)
+      } else {
+        cardRestaurant.content = results
+      }
+    } catch (message) {
+    }
+  }
 }
 
 export default Favorite
