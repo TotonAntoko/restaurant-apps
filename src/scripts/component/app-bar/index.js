@@ -1,10 +1,10 @@
-import styles from './app-bar.styles.scss';
-import barDesktop from './template/app-bar-desktop.html';
-import barMobile from './template/app-bar-mobile.html';
-import navigationDrawer from './template/nav-menu.html';
+import styles from './app-bar.styles.scss'
+import barDesktop from './template/app-bar-desktop.html'
+import barMobile from './template/app-bar-mobile.html'
+import navigationDrawer from './template/nav-menu.html'
 
 class AppBar extends HTMLElement {
-  connectedCallback() {
+  connectedCallback () {
     this.innerHTML = `
       <style>
         ${styles}
@@ -15,22 +15,22 @@ class AppBar extends HTMLElement {
           ${barDesktop}
         </div>
       </header>
-    `;
+    `
 
-    $('nav').append(`${navigationDrawer}`);
-    $("#navigationDrawer a").each(
-      function() {
-        window.matchMedia("(min-width: 992px)").matches ? $(this).attr('tabindex', "-1") : '';
+    $('nav').append(`${navigationDrawer}`)
+    $('#navigationDrawer a').each(
+      function () {
+        window.matchMedia('(min-width: 992px)').matches ? $(this).attr('tabindex', '-1') : ''
       }
-    );
+    )
 
     $('.nav-menu > li > a').click((e) => {
-      $('.nav-menu > li').removeClass('active');
+      $('.nav-menu > li').removeClass('active')
       if (!$(e.target).closest('li').hasClass('active')) {
-        $(e.target).closest('li').addClass('active');
+        $(e.target).closest('li').addClass('active')
       }
-    });
+    })
   }
 }
 
-customElements.define('app-bar', AppBar);
+customElements.define('app-bar', AppBar)

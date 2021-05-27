@@ -1,7 +1,7 @@
-import styles from './hero-image.styles.scss';
+import styles from './hero-image.styles.scss'
 
 class HeroImage extends HTMLElement {
-  connectedCallback() {
+  connectedCallback () {
     this.innerHTML = `
       <style>
         ${styles}
@@ -12,8 +12,8 @@ class HeroImage extends HTMLElement {
           <p tabindex="0">Explore favorite restaurants in your area.</p>
         </div>
       </div>
-    `;
+    `
   }
 }
 
-customElements.define('hero-image', HeroImage);
+customElements.define('hero-image', HeroImage)
