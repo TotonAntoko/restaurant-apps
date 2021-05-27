@@ -24,18 +24,14 @@ const Favorite = {
   async afterRender () {
     const cardRestaurant = document.querySelector('card-restaurant')
 
-    try {
-      const results = await FavoriteRestaurantIdb.getAllRestaurants()
-      console.log(results)
-      if (results.length === 0) {
-        $('.main-content').html(`<div class="empty-favorite">
-            <img src="/assets/images/empty-favorite.png">
+    const results = await FavoriteRestaurantIdb.getAllRestaurants()
+    if (results.length === 0) {
+      $('.main-content').html(`<div class="empty-favorite">
+            <img src="images/empty-favorite.svg">
             <p>favorite restaurant data not found</p>
         </div>`)
-      } else {
-        cardRestaurant.content = results
-      }
-    } catch (message) {
+    } else {
+      cardRestaurant.content = results
     }
   }
 }
