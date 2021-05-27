@@ -1,19 +1,41 @@
-@import './font-awesome/font-awesome.scss';
+@import "./font-awesome/font-awesome.scss";
 @font-face {
-  font-family: 'Lato';
+  font-family: "Lato";
   font-style: normal;
   font-weight: 300;
-  src: url('~assets/fonts/lato-v16-latin-regular.eot'); // IE9 Compat Modes
-  src: url('~assets/fonts/lato-v16-latin-regular.eot?#iefix') format('embedded-opentype'), // IE6-IE8
-  url('~assets/fonts/lato-v16-latin-regular.woff2') format('woff2'), // Super Modern Browsers
-  url('~assets/fonts/lato-v16-latin-regular.woff') format('woff'), // Pretty Modern Browsers
-  url('~assets/fonts/lato-v16-latin-regular.ttf') format('truetype'), // Safari, Android, iOS
-  url('~assets/fonts/lato-v16-latin-regular.svg#Lato') format('svg'); // Legacy iOS
+  src: url("~assets/fonts/lato-v16-latin-regular.eot"); // IE9 Compat Modes
+  src: url("~assets/fonts/lato-v16-latin-regular.eot?#iefix") format("embedded-opentype"),
+    // IE6-IE8
+    url("~assets/fonts/lato-v16-latin-regular.woff2") format("woff2"),
+    // Super Modern Browsers
+    url("~assets/fonts/lato-v16-latin-regular.woff") format("woff"),
+    // Pretty Modern Browsers
+    url("~assets/fonts/lato-v16-latin-regular.ttf") format("truetype"),
+    // Safari, Android, iOS
+    url("~assets/fonts/lato-v16-latin-regular.svg#Lato") format("svg"); // Legacy iOS
 }
 
 .container {
   margin-right: auto;
   margin-left: auto;
+}
+
+.btn {
+  display: block;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+
+  &.btn-warning {
+    background-color: #ffc107;
+
+    &:hover {
+      background-color: #ff9800;
+    }
+  }
 }
 
 .skip-link {
@@ -66,7 +88,80 @@ main {
         }
       }
     }
+
+    .main-review {
+      display: grid;
+      grid-template-rows: 1fr;
+
+      .main-card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 5px 10px 0 rgba(51, 54, 69, 0.1);
+        margin-bottom: 15px;
+
+        .col-info {
+          padding: 15px 20px;
+
+          h4 {
+            margin-top: 10px;
+            margin-bottom: 0px;
+          }
+
+          p {
+            font-size: 10px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            max-height: 5.6em;
+            line-height: 1.8em;
+            color: #6d6d6d;
+            margin-bottom: 0;
+          }
+
+          p.note {
+            margin-top: 5px;
+          }
+
+          p.date {
+            font-size: 8px;
+            font-style: italic;
+          }
+        }
+      }
+    }
+
+    .main-form {
+      padding: 1.5rem;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 5px 10px 0 rgba(51, 54, 69, 0.1);
+      margin-bottom: 15px;
+
+      .col-form {
+        width: 100%;
+        display: grid;
+        margin-bottom: 15px;
+
+        label {
+          margin-bottom: 10px;
+        }
+
+        input,
+        textarea {
+          width: auto;
+        }
+      }
+    }
   }
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #9a9a9a;
+  border-radius: 5px;
+  outline-color: #ff9800;
+  font-family: "Lato", sans-serif;
 }
 
 footer .container {
@@ -80,6 +175,11 @@ footer .container {
   main {
     .main-list {
       margin-top: 15rem;
+
+      .main-review {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
     }
   }
   .container {
@@ -91,6 +191,11 @@ footer .container {
   main {
     .main-list {
       margin-top: 18rem;
+
+      .main-review {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
     }
   }
   .container {
@@ -102,6 +207,11 @@ footer .container {
   main {
     .main-list {
       margin-top: 18rem;
+
+      .main-review {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+      }
     }
   }
   .container {
@@ -113,6 +223,11 @@ footer .container {
   main {
     .main-list {
       margin-top: 18rem;
+
+      .main-review {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+      }
     }
   }
   .container {
@@ -121,12 +236,30 @@ footer .container {
 }
 
 @media (min-width: 1440px) {
+  main {
+    .main-list {
+      .main-review {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 10px;
+      }
+    }
+  }
+
   .container {
     max-width: 1320px;
   }
 }
 
 @media (min-width: 1920px) {
+  main {
+    .main-list {
+      .main-review {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 10px;
+      }
+    }
+  }
+
   .container {
     max-width: 1800px;
   }
