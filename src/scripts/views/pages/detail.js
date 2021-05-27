@@ -1,5 +1,6 @@
 import UrlParser from '../../routes/url-parser'
 import RestaurantSource from '../../data/restaurant-source'
+import LikeButtonInitiator from '../../utils/like-button-initiator'
 
 import { createRestaurantMenusTemplate, createCustomerReviewTemplate } from '../templates/template-creator'
 
@@ -32,6 +33,7 @@ const Detail = {
           </form>
           <div class="main-review"></div>
         </div>
+        <div id="likeButtonContainer"></div>
       </div>
     `
   },
@@ -48,6 +50,11 @@ const Detail = {
 
     // Get Customer Review
     restaurant.customerReviews.map((review) => $('.main-review').append(createCustomerReviewTemplate(review)))
+
+    // Button Like
+    await LikeButtonInitiator.init({
+      likeButtonContainer: document.querySelector('#likeButtonContainer')
+    })
   }
 }
 
