@@ -59,7 +59,15 @@ const Detail = {
 
     // Button Like
     await LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector('#likeButtonContainer')
+      likeButtonContainer: document.querySelector('#likeButtonContainer'),
+      restaurant: {
+        id: restaurant.id,
+        name: restaurant.name,
+        pictureId: restaurant.pictureId,
+        rating: restaurant.rating,
+        city: restaurant.city,
+        description: restaurant.description
+      }
     })
   }
 }
