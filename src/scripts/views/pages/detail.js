@@ -4,12 +4,14 @@ import LikeButtonInitiator from '../../utils/like-button-initiator'
 
 import { createRestaurantMenusTemplate, createCustomerReviewTemplate } from '../templates/template-creator'
 
+import '../../component/app-breadcrumb'
 import '../../component/restaurant-detail-header'
 
 const Detail = {
   async render () {
     return `
       <div class="main-header">
+        <app-breadcrumb></app-breadcrumb>
         <restaurant-detail-header></restaurant-detail-header>
       </div>
       <div class="container">
@@ -42,8 +44,12 @@ const Detail = {
     const url = UrlParser.parseActiveUrlWithoutCombiner()
     const restaurant = await RestaurantSource.detailRestaurant(url.id)
     const headerRestaurant = document.querySelector('restaurant-detail-header')
+    const appBreadcrumb = document.querySelector('app-breadcrumb')
     headerRestaurant.content = restaurant
     console.log(restaurant)
+
+    // Set Title Breadcrumb Active
+    appBreadcrumb.title = restaurant.name
 
     // Get Menu Categories
     Object.keys(restaurant.menus).map((category) => $('.main-menu').append(createRestaurantMenusTemplate(category, restaurant.menus)))
