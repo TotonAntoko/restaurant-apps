@@ -5,7 +5,11 @@ const CONFIG = {
     MEDIUM: 'https://restaurant-api.dicoding.dev/images/medium/',
     LARGE: 'https://restaurant-api.dicoding.dev/images/large/'
   },
-  CACHE_NAME: 'EateryApps-V1'
+  CACHE_NAME: 'EateryApps-V1',
+  DATABASE_NAME: 'eatery-apps-database',
+  DATABASE_VERSION: 1,
+  OBJECT_STORE_NAME: 'eatery-apps'
+
 }
 
 export default CONFIG
