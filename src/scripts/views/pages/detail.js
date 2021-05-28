@@ -1,3 +1,4 @@
+import swal from 'sweetalert'
 import UrlParser from '../../routes/url-parser'
 import RestaurantSource from '../../data/restaurant-source'
 import LikeButtonInitiator from '../../utils/like-button-initiator'
@@ -57,6 +58,9 @@ const Detail = {
     // Get Customer Review
     restaurant.customerReviews.map((review) => $('.main-review').append(createCustomerReviewTemplate(review)))
 
+    // Add New Customer Review
+    await this.addCustomerReviews(url.id)
+
     // Button Like
     await LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
@@ -67,6 +71,36 @@ const Detail = {
         rating: restaurant.rating,
         city: restaurant.city,
         description: restaurant.description
+      }
+    })
+  },
+
+  async addCustomerReviews (id) {
+    $('#submitReview').click(event => {
+      event.preventDefault()
+      const name = document.getElementById('name').value
+      const review = document.getElementById('review').value
+
+      if (name !== '' || review !== '') {
+        const reviewData = {
+          id,
+          name,
+          review
+        }
+
+        RestaurantSource.reviewRestaurant(reviewData)
+          .then((data) => {
+            if (data.customerReviews) {
+              swal('Thank You for Your Review', 'Your review has been sent successfully', 'success')
+
+              $('.main-review').html('')
+              document.getElementById('name').value = ''
+              document.getElementById('review').value = ''
+              data.customerReviews.map((newReview) => $('.main-review').append(createCustomerReviewTemplate(newReview)))
+            }
+          })
+      } else {
+        swal('Sorry!', 'Please fill out the form completely to add your review!', 'error')
       }
     })
   }
