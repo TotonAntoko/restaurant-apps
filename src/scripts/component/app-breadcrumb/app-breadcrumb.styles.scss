@@ -1,11 +1,11 @@
 ol.breadcrumb {
-  padding: .8rem;
+  padding: 0.8rem;
   margin-top: 3.5rem;
   list-style: none;
 
   li {
     display: inline;
-    font-size: .8rem;
+    font-size: 0.8rem;
 
     + li:before {
       padding: 8px;
@@ -14,11 +14,11 @@ ol.breadcrumb {
     }
 
     a {
-      color: #ffc107;
+      color: #67b894;
       text-decoration: none;
 
       &:hover {
-        color: #ff9800;
+        color: #91dfbc;
       }
     }
   }
