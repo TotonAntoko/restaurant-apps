@@ -15,7 +15,7 @@ class RestaurantDetailHeader extends HTMLElement {
       <div class="restaurant-header">
         <div class="container">
           <div class="col-image">
-            <img class="lazyload" src="assets/images/loading.gif" ="${CONFIG.IMAGE_BASE_URL.MEDIUM}${pictureId}"
+            <img class="lazyload" src="images/loading.gif" ="${CONFIG.IMAGE_BASE_URL.MEDIUM}${pictureId}"
               data-srcset="${CONFIG.IMAGE_BASE_URL.SMALL}${pictureId} 480w, ${CONFIG.IMAGE_BASE_URL.LARGE}${pictureId} 800w"
               sizes="(max-width: 600px) 480px, 800px"
               alt="${name}" crossorigin="anonymous"/>
