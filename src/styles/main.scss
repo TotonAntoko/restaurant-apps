@@ -30,10 +30,11 @@
   cursor: pointer;
 
   &.btn-warning {
-    background-color: #ffc107;
+    background-color: #67b894;
+    color: white;
 
     &:hover {
-      background-color: #ff9800;
+      background-color: #91dfbc;
     }
   }
 
