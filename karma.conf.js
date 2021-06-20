@@ -31,6 +31,37 @@ module.exports = function (config) {
       // webpack configuration
       devtool: 'inline-source-map',
       mode: 'development',
+      module: {
+        rules: [{
+          test: /\.html$/i,
+          use: ['html-loader?esModule=false']
+        },
+        {
+          test: /\.(styles.scss)$/,
+          exclude: /node_modules/,
+          use: ['sass-to-string', 'sass-loader?sourceMap=true']
+        },
+        {
+          test: /\.(scss)$/,
+          include: /styles/,
+          exclude: [/\.styles.scss$/, /node_modules/],
+          use: ['style-loader', 'css-loader?esModule=false', 'sass-loader?sourceMap=true']
+        },
+        {
+          test: /\.(ttf|eot|woff|woff2)|(svg|png|jpg|gif)$/,
+          use: {
+            loader: 'file-loader',
+            options: {
+              // name: '[name].[ext]',
+              // outputPath: (url, resourcePath, context) => {
+              //   return resourcePath.split('\\').slice(7).join('/')
+              // },
+              esModule: false
+            }
+          }
+        }
+        ]
+      },
     },
 
     webpackMiddleware: {
