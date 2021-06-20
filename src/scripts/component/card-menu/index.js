@@ -1,7 +1,7 @@
 import styles from './card-menu.styles.scss'
 
 class CardMenu extends HTMLElement {
-  connectedCallback () {
+  connectedCallback() {
     this.innerHTML = `
       <style>
         ${styles}
@@ -13,7 +13,7 @@ class CardMenu extends HTMLElement {
     this.render()
   }
 
-  async render () {
+  async render() {
     const content = this._data.map((item) => {
       const { name } = item
 
