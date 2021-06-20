@@ -20,7 +20,11 @@ class AppBar extends HTMLElement {
     $('nav').append(`${navigationDrawer}`)
     $('#navigationDrawer a').each(
       function () {
-        window.matchMedia('(min-width: 992px)').matches ? $(this).attr('tabindex', '-1') : ''
+        if (window.matchMedia('(min-width: 992px)').matches) {
+          $(this).attr('tabindex', '-1')
+        } else {
+          $(this).attr('tabindex', '0')
+        }
       }
     )
 
