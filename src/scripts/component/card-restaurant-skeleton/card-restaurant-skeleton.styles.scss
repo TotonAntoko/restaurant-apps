@@ -1,0 +1,99 @@
+card-restaurant-skeleton {
+  display: grid;
+  grid-template-rows: 1fr;
+  .main-card {
+    display: grid;
+    grid-template-columns: 38% 62%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px 0 rgba(51, 54, 69, 0.1);
+    margin-bottom: 15px;
+
+    .background {
+      animation-duration: 2.2s;
+      animation-fill-mode: forwards;
+      animation-iteration-count: infinite;
+      animation-name: skeleton;
+      animation-timing-function: linear;
+      background: #ddd;
+      background: linear-gradient(to right, #f6f6f6 8%, #f0f0f0 18%, #f6f6f6 33%);
+      background-size: 1200px 100%;
+    }
+
+    .image {
+      height: 150px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    .p-32 {
+      padding: 32px;
+    }
+
+    .title {
+      height: 18px;
+      width: 100%;
+      margin-bottom: 12px;
+      border-radius: 20px;
+    }
+
+    .content {
+      height: 8px;
+      width: 100%;
+      margin-bottom: 16px;
+      border-radius: 8px;
+    }
+
+    .end {
+      width: 40%;
+    }
+  }
+}
+
+$medium-width: 768px;
+$large-width: 992px;
+@media (min-width: $medium-width) and (max-width: $large-width) {
+  card-restaurant-skeleton {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+@media (min-width: $large-width) {
+  .main-content {
+    card-restaurant-skeleton {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 20px;
+
+      .main-card {
+        grid-template-columns: none;
+      }
+    }
+  }
+}
+
+.m-t-24 {
+  margin-top: 24px;
+}
+
+@-webkit-keyframes skeleton {
+  0% {
+    background-position: -100% 0;
+  }
+
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+@keyframes skeleton {
+  0% {
+    background-position: -1200px 0;
+  }
+
+  100% {
+    background-position: 1200px 0;
+  }
+}
