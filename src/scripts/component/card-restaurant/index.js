@@ -18,7 +18,7 @@ class CardRestaurant extends HTMLElement {
       <a href="#/detail/${item.id}">
         <div class="main-card">
           <div class="col-image">
-            <img class="lazyload" src="images/loading.gif" data-src="${CONFIG.IMAGE_BASE_URL.SMALL}${item.pictureId}" data-srcset="${CONFIG.IMAGE_BASE_URL.MEDIUM}${item.pictureId} 480w, ${CONFIG.IMAGE_BASE_URL.LARGE}${item.pictureId} 800w" sizes="(max-width: 600px) 480px, 800px" alt="${item.name}"/>
+            <img class="lazyload" src="images/loading.gif" data-src="${CONFIG.IMAGE_BASE_URL.MEDIUM}${item.pictureId}" data-srcset="${CONFIG.IMAGE_BASE_URL.SMALL}${item.pictureId} 480w, ${CONFIG.IMAGE_BASE_URL.LARGE}${item.pictureId} 800w" sizes="(max-width: 600px) 480px, 800px" alt="${item.name}"/>
           </div>
           <div class="col-info">
             <h1 tabindex="0" class="title">${item.name}</h1>
