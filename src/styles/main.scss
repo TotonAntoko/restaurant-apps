@@ -13,6 +13,7 @@
     url("~assets/fonts/lato-v16-latin-regular.ttf") format("truetype"),
     // Safari, Android, iOS
     url("~assets/fonts/lato-v16-latin-regular.svg#Lato") format("svg"); // Legacy iOS
+  font-display: swap;
 }
 
 .container {
