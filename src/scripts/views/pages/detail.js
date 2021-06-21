@@ -7,12 +7,14 @@ import { createRestaurantMenusTemplate, createCustomerReviewTemplate } from '../
 
 import '../../component/app-breadcrumb'
 import '../../component/restaurant-detail-header'
+import '../../component//restaurant-detail-header-skeleton'
 
 const Detail = {
   async render () {
     return `
       <div class="main-header">
         <app-breadcrumb></app-breadcrumb>
+        <restaurant-detail-header-skeleton></restaurant-detail-header-skeleton>
         <restaurant-detail-header></restaurant-detail-header>
       </div>
       <div class="container">
@@ -47,6 +49,7 @@ const Detail = {
     const headerRestaurant = document.querySelector('restaurant-detail-header')
     const appBreadcrumb = document.querySelector('app-breadcrumb')
     headerRestaurant.content = restaurant
+    $('restaurant-detail-header-skeleton').remove()
     console.log(restaurant)
 
     // Set Title Breadcrumb Active
