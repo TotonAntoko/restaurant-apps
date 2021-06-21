@@ -1,5 +1,5 @@
 .main-hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("images/hero-image_2.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("images/hero-image_2-small.jpg");
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
@@ -23,6 +23,7 @@
 
 @media (min-width: 768px) {
   .main-hero-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("images/hero-image_2-large.jpg");
     margin-top: -14rem;
     .main-hero-text {
       padding: 50px;
