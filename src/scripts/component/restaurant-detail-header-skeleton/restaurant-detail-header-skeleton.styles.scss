@@ -1,0 +1,87 @@
+.restaurant-detail-header-skeleton {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  background-color: #fff;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  margin-bottom: 2.5rem;
+  padding: 2rem 0;
+  height: 200px;
+
+  .background {
+    animation-duration: 2.2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: skeleton;
+    animation-timing-function: linear;
+    background: #ddd;
+    background: linear-gradient(to right, #f6f6f6 8%, #f0f0f0 18%, #f6f6f6 33%);
+    background-size: 1200px 100%;
+  }
+
+  .image {
+    border-radius: 10px;
+    height: 200px;
+    margin: 10px 0 10px 150px;
+  }
+
+  .p-32 {
+    padding: 32px;
+  }
+
+  .title {
+    height: 24px;
+    width: 100%;
+    margin-bottom: 12px;
+    border-radius: 20px;
+  }
+
+  .content {
+    height: 8px;
+    width: 100%;
+    margin-bottom: 16px;
+    border-radius: 8px;
+  }
+
+  .end {
+    width: 40%;
+  }
+}
+
+@-webkit-keyframes skeleton {
+  0% {
+    background-position: -100% 0;
+  }
+
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+@keyframes skeleton {
+  0% {
+    background-position: -1200px 0;
+  }
+
+  100% {
+    background-position: 1200px 0;
+  }
+}
+
+@media (max-width: 419px) {
+  .shimmer-header-restaurant .media {
+    margin: 10px 0 10px 30px;
+  }
+}
+
+@media (min-width: 420px) and (max-width: 1123px) {
+  .shimmer-header-restaurant .media {
+    margin: 10px 0 10px 32px;
+  }
+}
+
+@media (min-width: 1124px) {
+  .shimmer-header-restaurant .media {
+    margin: 10px 0 10px 86px;
+  }
+}
