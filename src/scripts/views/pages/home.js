@@ -1,6 +1,7 @@
 import RestaurantSource from '../../data/restaurant-source'
 import '../../component/hero-image'
 import '../../component/card-restaurant'
+import '../../component/card-restaurant-skeleton'
 
 const Home = {
   async render () {
@@ -15,6 +16,7 @@ const Home = {
             </div>
           </div>
           <div class="main-content">
+            <card-restaurant-skeleton></card-restaurant-skeleton>
             <card-restaurant></card-restaurant>
           </div>
         </div>
@@ -26,6 +28,7 @@ const Home = {
     const restaurant = await RestaurantSource.listRestaurant()
     const cardRestaurant = document.querySelector('card-restaurant')
     cardRestaurant.content = restaurant
+    $('card-restaurant-skeleton').remove()
   }
 }
 
