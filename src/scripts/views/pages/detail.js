@@ -50,7 +50,6 @@ const Detail = {
     const appBreadcrumb = document.querySelector('app-breadcrumb')
     headerRestaurant.content = restaurant
     $('restaurant-detail-header-skeleton').remove()
-    console.log(restaurant)
 
     // Set Title Breadcrumb Active
     appBreadcrumb.title = restaurant.name
@@ -84,26 +83,30 @@ const Detail = {
       const name = document.getElementById('name').value
       const review = document.getElementById('review').value
 
-      if (name !== '' || review !== '') {
-        const reviewData = {
-          id,
-          name,
-          review
+      if (window.navigator.onLine) {
+        if (name !== '' || review !== '') {
+          const reviewData = {
+            id,
+            name,
+            review
+          }
+
+          RestaurantSource.reviewRestaurant(reviewData)
+            .then((data) => {
+              if (data.customerReviews) {
+                swal('Thank You for Your Review', 'Your review has been sent successfully', 'success')
+
+                $('.main-review').html('')
+                document.getElementById('name').value = ''
+                document.getElementById('review').value = ''
+                data.customerReviews.map((newReview) => $('.main-review').append(createCustomerReviewTemplate(newReview)))
+              }
+            })
+        } else {
+          swal('Sorry!', 'Please fill out the form completely to add your review!', 'error')
         }
-
-        RestaurantSource.reviewRestaurant(reviewData)
-          .then((data) => {
-            if (data.customerReviews) {
-              swal('Thank You for Your Review', 'Your review has been sent successfully', 'success')
-
-              $('.main-review').html('')
-              document.getElementById('name').value = ''
-              document.getElementById('review').value = ''
-              data.customerReviews.map((newReview) => $('.main-review').append(createCustomerReviewTemplate(newReview)))
-            }
-          })
       } else {
-        swal('Sorry!', 'Please fill out the form completely to add your review!', 'error')
+        swal('No Connection Internet!', 'Please check your network!', 'error')
       }
     })
   }
